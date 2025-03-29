@@ -6,6 +6,7 @@ import mealifyImg from '../assets/mealify.png';
 import junprokImg from '../assets/junprok.png'; 
 import banjarasriImg from '../assets/banjarasu.png'; 
 import banjarasriIG from '../assets/ssig.png';
+import ptPupuk from '../assets/ptpupuk.png';
 
 const ProjectCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -40,6 +41,13 @@ const ProjectCarousel = () => {
       description: "All the Weekly Recap in Reels, i made it.",
       type: "Instagram Reels PPK GAMAPI",
       instagramLink: "https://instagram.com/ppkbanjarasri.ugm"
+    },
+    {
+      id: 5,
+      title: "Portal Announcement Website for PT Pupuk Sriwidjaja Palembang",
+      image: ptPupuk,
+      description: "A portal website to announce the latest news and events from PT Pupuk Sriwidjaja Palembang. I'm sorry i can't provide the link because it's a regulation from the company.",
+      type: "Portal Website Announcement",
     }
   ];
 
