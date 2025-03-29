@@ -45,6 +45,16 @@ const Navbar = () => {
           About Me
         </Link>
         <Link 
+          to="/tools" 
+          className="text-black hover:text-gray-700"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('tools');
+          }}
+        >
+          Tools
+        </Link>
+        <Link 
           to="/portofolio" 
           className="text-black hover:text-gray-700"
           onClick={(e) => {
@@ -59,7 +69,7 @@ const Navbar = () => {
           className="text-black hover:text-gray-700"
           onClick={(e) => {
             e.preventDefault();
-            scrollToSection('anjing-lu');
+            scrollToSection('self-project');
           }}
         >
           Self Project
@@ -87,14 +97,14 @@ const Navbar = () => {
         <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-md z-10">
           <div className="flex flex-col items-start p-4">
             <Link 
-              to="/beranda" 
+              to="/" 
               className="py-2 text-black hover:text-gray-700" 
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('beranda');
+                scrollToSection('home');
               }}
             >
-              Beranda
+              Home
             </Link>
             <Link 
               to="/about-me" 
@@ -107,6 +117,16 @@ const Navbar = () => {
               About Me
             </Link>
             <Link 
+              to="/tools" 
+              className="py-2 text-black hover:text-gray-700" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('tools');
+              }}
+            >
+              Tools
+            </Link>
+            <Link 
               to="/portofolio" 
               className="py-2 text-black hover:text-gray-700" 
               onClick={(e) => {
@@ -117,24 +137,14 @@ const Navbar = () => {
               Portofolio
             </Link>
             <Link 
-              to="/anjing-lu" 
+              to="/self-project" 
               className="py-2 text-black hover:text-gray-700" 
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('anjing-lu');
+                scrollToSection('self-project');
               }}
             >
-              Anjing Lu
-            </Link>
-            <Link 
-              to="/cukidog" 
-              className="py-2 text-black hover:text-gray-700" 
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('cukidog');
-              }}
-            >
-              Cukidog
+              Self Project
             </Link>
           </div>
         </div>
