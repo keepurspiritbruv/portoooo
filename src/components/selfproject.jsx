@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { FaYoutube, FaInstagram } from 'react-icons/fa';
+import { FaGoogleDrive } from 'react-icons/fa';
 
 import kurbanImage from '../assets/kurban-207.jpg';
 import hariIbuImage from '../assets/DSC01975.png';
+import lembahManahImage from '../assets/DSC04752-72.jpg';
+import nglolangBeachImage from '../assets/DSC04629-170.jpg';
 
 const SelfProject = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,6 +17,7 @@ const SelfProject = () => {
       image: kurbanImage,
       description: "I am in charge of photographing the qurban at my neighborhood mosque to capture the special Qurban 2024 moment",
       type: "Photograph Qurban 2024",
+      driveLink: "https://drive.google.com/drive/folders/1uIEW78GoppRLSiaONw7RwqKSc7-a9P_p?usp=drive_link"
     },
     {
       id: 2,
@@ -22,7 +25,24 @@ const SelfProject = () => {
       image: hariIbuImage,
       description: "I am in charge of capturing the very happy Mother's Day moment.",
       type: "Photograph Mother's Day 2023",
+      driveLink: "https://drive.google.com/drive/folders/1jIGizeVsSGa-wUz42CwQbFG8r-S1RWLA?usp=sharing"
     },
+    {
+      id: 3,
+      title: "Trip to Nglolang Beach 2024",
+      image: nglolangBeachImage,
+      description: "A small trip to a beach called 'Nglolang' in Gunungkidul, Yogyakarta. I'm capturing the moment while my friends are enjoying the beach.",
+      type: "Photograph Nglolang Beach 2024",
+      driveLink: "https://drive.google.com/drive/folders/1e8jr4IHsGupnhmPI2v9b0cE5CY8501-2?usp=drive_link"
+    },
+    {
+      id: 4,
+      title: "Trip to Lembah Manah 2024",
+      image: lembahManahImage,
+      description: "This is a small trip with my friends to Lembah Manah and Girpasang Klaten to capture the beautiful scenery and feel the sensation of riding a motorbike.",
+      type: "Photograph Lembah Manah 2025",
+      driveLink: "https://drive.google.com/drive/folders/1MY8K_GspjQj8Wne9k6LkIWzUUnoldw-q?usp=drive_link"
+    }
   ];
 
   const nextSlide = () => {
@@ -63,27 +83,17 @@ const SelfProject = () => {
                       <span className="font-bold">{project.type}</span>
                       <h3 className="text-xl font-bold mt-2">"{project.title}"</h3>
                     </div>
-                    <div className="flex gap-3">
-                      {project.youtubeLink && (
+                    <div>
+                      {project.driveLink && (
                         <a 
-                          href={project.youtubeLink} 
+                          href={project.driveLink} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="text-red-600 hover:text-red-700 transition-colors"
-                          aria-label="Watch on YouTube"
+                          className="text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-2"
+                          aria-label="View more photos on Google Drive"
                         >
-                          <FaYoutube size={32} />
-                        </a>
-                      )}
-                      {project.instagramLink && (
-                        <a 
-                          href={project.instagramLink} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-pink-600 hover:text-pink-700 transition-colors"
-                          aria-label="View on Instagram"
-                        >
-                          <FaInstagram size={30} />
+                          <FaGoogleDrive size={28} />
+                          <span className="text-sm font-medium">More Photos</span>
                         </a>
                       )}
                     </div>

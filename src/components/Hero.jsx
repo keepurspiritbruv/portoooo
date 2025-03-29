@@ -9,12 +9,22 @@ const Hero = () => {
         <h1 className="text-5xl font-bold mb-2">Murguy's here</h1>
         <h2 className="text-2xl mb-4">Videografer | Designer | Photographer</h2>
         <p className="text-gray-600 mb-6">More likely UI/UX designer or Frontend Engineer. I also interested in a DDD Section to upgrade my DDD skills and find a new experience.</p>
-        <a 
-          href="mailto:dhimasnurhanindya@gmail.com?subject=Job%20Opportunity" 
-          className="inline-block bg-blue-700 text-white px-8 py-3 rounded-full hover:bg-blue-800 transition duration-300"
-        >
-          Hire Me
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a 
+            href="mailto:dhimasnurhanindya@gmail.com?subject=Job%20Opportunity" 
+            className="inline-block bg-blue-700 text-white px-8 py-3 rounded-full hover:bg-blue-800 transition duration-300 text-center"
+          >
+            Hire Me
+          </a>
+          <a 
+            href="https://drive.google.com/file/d/1kYcZ1UkJnAzazvVEuVyorAlaWGQvyrzm/view?usp=sharing" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-block bg-white text-blue-700 border-2 border-blue-700 px-8 py-3 rounded-full hover:bg-blue-50 transition duration-300 text-center"
+          >
+            Take A Look at My CV
+          </a>
+        </div>
       </div>
       <div className="hero-image">
         <img 
