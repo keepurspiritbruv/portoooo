@@ -6,7 +6,7 @@ const AboutMe = () => {
   // Social media links and their respective icons
   const socialLinks = [
     { name: 'YouTube', icon: <FaYoutube size={24} />, url: 'https://youtube.com/@dhimasnurhanindya' },
-    { name: 'Instagram', icon: <FaInstagram size={24} />, url: 'https://instagram.com/@dhms._' },
+    { name: 'Instagram', icon: <FaInstagram size={24} />, url: 'https://www.instagram.com/dhms._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
     { name: 'Twitter', icon: <FaTwitter size={24} />, url: 'https://x.com/dhimurguy' },
     { name: 'LinkedIn', icon: <FaLinkedin size={24} />, url: 'https://www.linkedin.com/in/dhimasnp/' },
     { name: 'Discord', icon: <FaDiscord size={24} />, url: 'https://discord.com' },
