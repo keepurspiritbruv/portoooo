@@ -7,6 +7,7 @@ import junprokImg from '../assets/junprok.png';
 import banjarasriImg from '../assets/banjarasu.png'; 
 import banjarasriIG from '../assets/ssig.png';
 import ptPupuk from '../assets/ptpupuk.png';
+import dashboardcp from '../assets/DashboardD04.png';
 
 const ProjectCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -48,6 +49,13 @@ const ProjectCarousel = () => {
       image: ptPupuk,
       description: "A portal website to announce the latest news and events from PT Pupuk Sriwidjaja Palembang. I'm sorry i can't provide the link because it's a regulation from the company.",
       type: "Portal Website Announcement",
+    },
+    {
+      id: 6,
+      title: "Pengembangan Aplikasi Web Capstone Project 'Pemanfaatan Gelombang Ultrasonik sebagai Pengusir Hama Guna Meningkatkan Kemananan dan Produktivitas Petani",
+      image: dashboardcp,
+      description: "A web application developed as a capstone project, utilizing ultrasonic waves for pest control to enhance the safety and productivity of farmers. (On Progress).",
+      type: "Capstone Project",
     }
   ];
 
