@@ -1,0 +1,23 @@
+import { useInView } from 'framer-motion'
+import { useRef } from 'react'
+
+const useScrollReveal = (threshold = 0.15) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, amount: threshold })
+
+  const variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+      },
+    },
+  }
+
+  return { ref, isInView, variants }
+}
+
+export default useScrollReveal

@@ -1,1 +1,84 @@
 @import "tailwindcss";
+
+@theme {
+  --font-serif: 'DM Serif Display', serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --color-surface: #FAFAF8;
+  --color-surface-card: #F0F0EE;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: rgba(26, 26, 26, 0.5);
+  --color-ink-faint: rgba(26, 26, 26, 0.3);
+  --color-accent: #2DD4BF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+}
+
+::selection {
+  background-color: rgba(45, 212, 191, 0.3);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes clipReveal {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drawStroke {
+  0% { stroke-dashoffset: 300; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-slide-down {
+  animation: slideDown 1.5s ease-in-out infinite;
+}
+
+.animate-clip-reveal {
+  animation: clipReveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.ornament-draw {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+}
+
+.ornament-draw.animate {
+  animation: drawStroke 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
