@@ -25,19 +25,19 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#fbfaf6]"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-paper"
           aria-label="Loading portfolio"
         >
           <div className="text-center">
-            <p className="font-sans text-5xl font-black tracking-[-0.08em] text-[#191a18] sm:text-7xl">
-              MURGUY<span className="text-[#e1ae27]">.</span>
+            <p className="pixel-wordmark text-2xl text-ink sm:text-4xl">
+              MURGUY
             </p>
-            <div className="mx-auto mt-5 h-1 w-24 overflow-hidden rounded-full bg-[#eee9dc]">
+            <div className="mx-auto mt-5 h-1 w-24 overflow-hidden rounded-full bg-paper-shadow">
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, ease: 'easeInOut' }}
-                className="h-full origin-left bg-[#f0c63f]"
+                className="h-full origin-left bg-accent"
               />
             </div>
           </div>

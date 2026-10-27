@@ -14,7 +14,7 @@ function App() {
   }, [])
 
   return (
-    <div className="notebook-shell font-sans text-[#1a1a1a]">
+    <div className="notebook-shell font-sans text-ink">
       <LoadingScreen onComplete={handleIntroComplete} />
 
       <motion.div

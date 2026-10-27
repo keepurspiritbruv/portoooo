@@ -10,7 +10,7 @@ The site presents professional and volunteer experience, academic work, projects
 | Styling       | Tailwind CSS v4                     |
 | Animation     | Framer Motion                       |
 | Icons         | Lucide React                        |
-| Fonts         | DM Serif Display + DM Sans          |
+| Fonts         | Inter + Caveat + Space Mono + Press Start 2P, with DM Serif Display + DM Sans |
 | Build Tool    | Vite 6                              |
 | Linting       | ESLint                              |
 ---
@@ -87,17 +87,17 @@ portofolioku/
 - **Single-page portfolio** — The navigation links scroll to sections on one page.
 - **Automatic Intro** — An animated opening transitions into the portfolio.
 - **Scroll Reveals** — Sections and project cards animate as they enter view.
-- **Expandable Projects** — Project details, available screenshots, and links appear when a project is opened.
+- **Project Showcase** — Select among all projects to see their current descriptions, available images, and links.
 - **Responsive Design** — Mobile-first with hamburger nav, adaptive typography via `clamp()`.
 - **Notebook-inspired Theme** — Warm paper tones, near-black text, and yellow accents.
 ---
 ## Color Palette
 | Token             | Value     | Usage                     |
 |-------------------|-----------|---------------------------|
-| `--color-surface` | `#FAF9F6` | Page background           |
-| `--color-surface-card` | `#FFFEFA` | Card backgrounds     |
-| `--color-ink`     | `#191A18` | Primary text              |
-| `--color-accent`  | `#F7CB45` | Accent (yellow)           |
+| `--paper` | `oklch(98.2% 0.008 100)` | Ruled page background |
+| `--paper-raised` | `oklch(99.6% 0.004 100)` | Card surfaces |
+| `--ink` | `oklch(18.2% 0.003 264)` | Primary text |
+| `--yellow` | `oklch(83.8% 0.145 88)` | Accent |
 ---
 ## Contact
 - **Email:** [dhimasnurhanindya@gmail.com](mailto:dhimasnurhanindya@gmail.com)

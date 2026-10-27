@@ -8,6 +8,7 @@ interface NavbarProps {
 }
 
 const navLinks: NavLink[] = [
+  { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
@@ -27,7 +28,7 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
   }, [])
 
   useEffect(() => {
-    const sections = ['home', ...navLinks.map((link) => link.href.slice(1))]
+    const sections = navLinks.map((link) => link.href.slice(1))
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -54,31 +55,30 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
       initial={{ y: -20, opacity: 0 }}
       animate={introComplete ? { y: 0, opacity: 1 } : {}}
       transition={{ delay: 0.8, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-      className={`sticky top-0 z-50 border-b border-[#e9e5da] transition-all duration-300 ${
-        showBg ? 'bg-[#fbfaf6]/95 backdrop-blur-md' : 'bg-[#fbfaf6]/80'
-      }`}
+      className={`nav-paper sticky top-0 z-50 border-b border-rule transition-colors duration-300 ${showBg ? 'shadow-sm' : ''}`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-10 py-3 flex items-center justify-between gap-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6 md:px-10">
         <a
           href="#home"
           onClick={closeMenu}
-          className="flex items-center gap-2 font-serif text-lg tracking-wide text-[#1a1a1a] hover:text-[#a35b31] transition-colors"
+          className="flex shrink-0 items-center gap-2 font-serif text-lg tracking-wide text-ink transition-colors hover:text-orange"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f7cb45] text-xs font-bold">M</span>
-          <span>murguy<span className="text-[#b66f44]">.</span></span>
+          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-ink bg-accent font-mono text-[10px] font-bold">M</span>
+          <span>murguy<span className="text-orange">.</span></span>
         </a>
 
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => {
             const active = activeSection === link.href.slice(1)
             return (
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative rounded px-3 py-2 text-[11px] tracking-[0.08em] uppercase transition-colors group ${
+                aria-current={active ? 'location' : undefined}
+                className={`relative rounded-sm px-3 py-2 font-mono text-[10px] tracking-[0.04em] uppercase transition-colors ${
                   active
-                    ? 'bg-[#f7cb45] text-[#191a18]'
-                    : 'text-[#65645d] hover:bg-[#f1eee4] hover:text-[#191a18]'
+                    ? 'bg-accent text-ink'
+                    : 'text-ink-muted hover:bg-paper-shadow hover:text-ink'
                 }`}
               >
                 {link.label}
@@ -88,7 +88,7 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
         </div>
 
         <button
-          className="md:hidden text-[#1a1a1a]"
+          className="rounded-sm border border-rule-strong p-2 text-ink transition-colors hover:bg-paper-shadow lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
@@ -103,25 +103,17 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#fbfaf6] border-t border-[#e9e5da] overflow-hidden"
+            className="nav-paper overflow-hidden border-t border-rule lg:hidden"
           >
-            <div className="flex flex-col px-4 py-3 gap-1">
-              <a
-                href="#home"
-                onClick={closeMenu}
-                className={`rounded px-3 py-2 text-left text-xs tracking-[0.15em] uppercase transition-colors ${
-                  activeSection === 'home' ? 'bg-[#f7cb45] text-[#191a18]' : 'text-[#65645d]'
-                }`}
-              >
-                Home
-              </a>
+            <div className="flex flex-col gap-1 px-4 py-3">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={closeMenu}
-                  className={`rounded px-3 py-2 text-left text-xs tracking-[0.1em] uppercase transition-colors ${
-                    activeSection === link.href.slice(1) ? 'bg-[#f7cb45] text-[#191a18]' : 'text-[#65645d]'
+                  aria-current={activeSection === link.href.slice(1) ? 'location' : undefined}
+                  className={`rounded-sm px-3 py-2 text-left font-mono text-[10px] tracking-[0.04em] uppercase transition-colors ${
+                    activeSection === link.href.slice(1) ? 'bg-accent text-ink' : 'text-ink-muted hover:bg-paper-shadow'
                   }`}
                 >
                   {link.label}

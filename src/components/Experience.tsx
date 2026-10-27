@@ -22,28 +22,21 @@ const Experience = () => {
   const { ref, isInView, variants } = useScrollReveal()
 
   return (
-    <section id="experience" className="notebook-section px-5 py-20 sm:px-10 md:px-14 md:py-28 relative overflow-hidden">
-      <div className="pointer-events-none absolute top-1/3 right-[2%] w-24 h-24 md:w-36 md:h-36 opacity-15">
-        <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#1a1a1a]">
-          <rect x="10" y="10" width="80" height="80" stroke="currentColor" strokeWidth="0.5" rx="4" />
-          <rect x="25" y="25" width="50" height="50" stroke="currentColor" strokeWidth="0.3" rx="2" />
-        </svg>
-      </div>
-
-      <div className="max-w-6xl mx-auto">
+    <section id="experience" className="notebook-section relative overflow-hidden px-5 py-20 sm:px-10 md:px-14 md:py-28">
+      <div className="mx-auto max-w-6xl">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
           variants={variants}
         >
-          <p className="note-label mb-5">Experience &amp; journey</p>
-          <h2 className="mb-10 max-w-3xl text-[clamp(2.3rem,6vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[#191a18]">
+          <p className="hand-note mb-3 text-2xl text-orange">Career timeline</p>
+          <h2 className="mb-10 max-w-3xl font-display text-[clamp(2rem,5vw,3.75rem)] font-extrabold leading-[1.02] tracking-[-0.045em] text-ink">
             The places and people that shaped my work.
           </h2>
         </motion.div>
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="timeline-list flex flex-col gap-4 pl-1">
           {experiences.map((exp, index) => {
             const Icon = iconMap[exp.type]
             return (
@@ -57,53 +50,51 @@ const Experience = () => {
                   duration: 0.6,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
-                className="notebook-card flex gap-4 p-5 transition-transform hover:-translate-y-1 sm:p-6"
+                className="relative flex gap-4"
               >
-                <div className="shrink-0 mt-1">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e4d27b] bg-[#fff5c8] text-[#5e5432] transition-colors">
-                    <Icon size={16} />
-                  </div>
-                </div>
-
-                <div className="flex-1 min-w-0">
+                <span className="timeline-marker" aria-hidden="true" />
+                <article className={`notebook-card flex-1 min-w-0 p-5 transition-transform hover:-translate-y-0.5 sm:p-6 ${index % 3 === 0 ? 'note-mint' : index % 3 === 1 ? 'note-blue' : 'note-yellow'}`}>
                   <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                    <h3 className="text-base font-semibold text-[#191a18]">{exp.role}</h3>
-                    <span className="w-fit shrink-0 rounded bg-[#f3f0e8] px-2 py-1 font-mono text-[10px] text-[#65645d]">{exp.period}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-rule bg-paper-raised text-green"><Icon size={14} /></span>
+                      <h3 className="font-display text-base font-bold text-ink">{exp.role}</h3>
+                    </div>
+                    <span className="w-fit shrink-0 rounded-sm border border-rule bg-paper-raised px-2 py-1 font-mono text-[9px] uppercase tracking-wide text-ink-muted">{exp.period}</span>
                   </div>
-                  <p className="mb-1 text-xs font-medium text-[#a35b31]">{exp.company}</p>
-                  <p className="mb-3 text-[10px] uppercase tracking-wide text-[#807b6e]">{typeLabels[exp.type]} · {exp.location}</p>
-                  <p className="text-sm leading-[1.75] text-[#65645d]">{exp.description}</p>
-                </div>
+                  <p className="mb-1 text-xs font-semibold text-orange">{exp.company}</p>
+                  <p className="mb-3 font-mono text-[9px] uppercase tracking-wide text-ink-soft">{typeLabels[exp.type]} · {exp.location}</p>
+                  <p className="text-sm leading-[1.75] text-ink-muted">{exp.description}</p>
+                </article>
               </motion.div>
             )
           })}
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2">
-          <article className="notebook-card p-6 sm:p-7">
+          <article className="notebook-card note-yellow p-6 sm:p-7">
             <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e4d27b] bg-[#fff5c8] text-[#5e5432]"><GraduationCap size={16} /></div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-rule bg-paper-raised text-blue"><GraduationCap size={16} /></div>
               <p className="note-label">Education</p>
             </div>
-            <h3 className="text-lg font-semibold text-[#191a18]">{education.degree}</h3>
-            <p className="mt-1 text-sm text-[#a35b31]">{education.institution} · {education.location}</p>
-            <p className="mt-2 text-xs text-[#65645d]">{education.period} · GPA {education.gpa}</p>
-            <p className="mt-4 text-xs font-medium text-[#191a18]">Academic work</p>
-            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-[#65645d]">
+            <h3 className="font-display text-lg font-bold text-ink">{education.degree}</h3>
+            <p className="mt-1 text-sm text-orange">{education.institution} · {education.location}</p>
+            <p className="mt-2 font-mono text-[10px] text-ink-muted">{education.period} · GPA {education.gpa}</p>
+            <p className="mt-4 font-mono text-[10px] font-bold uppercase tracking-wide text-ink">Academic work</p>
+            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-ink-muted">
               {education.academicWork.map((work) => <li key={work}>{work}</li>)}
             </ul>
           </article>
 
-          <article className="notebook-card p-6 sm:p-7">
+          <article className="notebook-card note-pink p-6 sm:p-7">
             <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e4d27b] bg-[#fff5c8] text-[#5e5432]"><Award size={16} /></div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-rule bg-paper-raised text-orange"><Award size={16} /></div>
               <p className="note-label">Achievement</p>
             </div>
             {achievements.map((achievement) => (
               <div key={achievement.name}>
-                <h3 className="text-lg font-semibold text-[#191a18]">{achievement.name}</h3>
-                <p className="mt-1 text-sm text-[#a35b31]">{achievement.year} · Total score {achievement.totalScore}</p>
-                <p className="mt-3 text-sm leading-[1.75] text-[#65645d]">{achievement.administeredBy}</p>
+                <h3 className="font-display text-lg font-bold text-ink">{achievement.name}</h3>
+                <p className="mt-1 font-mono text-[10px] text-orange">{achievement.year} · Total score {achievement.totalScore}</p>
+                <p className="mt-3 text-sm leading-[1.75] text-ink-muted">{achievement.administeredBy}</p>
               </div>
             ))}
           </article>

@@ -1,107 +1,154 @@
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V5 · macrostructure: Portfolio Index · tone: playful precision · anchor hue: warm yellow · studied: yes · source: Stitch screen */
+@import "../tokens.css";
 @import "tailwindcss";
 
 @theme {
-  --font-serif: 'DM Serif Display', Georgia, serif;
-  --font-sans: 'DM Sans', sans-serif;
-  --font-hand: 'DM Serif Display', Georgia, serif;
-  --font-mono: ui-monospace, 'SFMono-Regular', monospace;
-  --color-surface: #faf9f6;
-  --color-surface-card: #fffefa;
-  --color-ink: #191a18;
-  --color-ink-muted: #65645d;
-  --color-ink-faint: #8a887e;
-  --color-accent: #f7cb45;
+  --font-sans: var(--type-body);
+  --font-display: var(--type-display);
+  --font-serif: var(--type-editorial);
+  --font-hand: var(--type-handwritten);
+  --font-mono: var(--type-code);
+  --font-pixel: var(--type-wordmark);
+  --color-surface: var(--paper);
+  --color-surface-card: var(--paper-raised);
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-paper-shadow: var(--paper-shadow);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-soft);
+  --color-accent: var(--yellow);
+  --color-yellow: var(--yellow);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-blue: var(--blue);
+  --color-green: var(--green);
+  --color-pink: var(--pink);
+  --color-orange: var(--orange);
+  --shadow-ink: var(--ink-shadow);
+  --ease-out: var(--motion-out);
+  --ease-in-out: var(--motion-in-out);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  scroll-padding-top: 5rem;
+  overflow-x: clip;
 }
 
 body {
   min-width: 320px;
-  background-color: #f5f3ec;
-  background-image: linear-gradient(to bottom, rgba(189, 183, 166, 0.18) 1px, transparent 1px);
-  background-size: 100% 28px;
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  overflow-x: hidden;
+  background-color: var(--paper);
+  background-image: linear-gradient(to bottom, color-mix(in oklch, var(--rule) 68%, transparent) 1px, transparent 1px);
+  background-size: 100% 2rem;
+  color: var(--ink);
+  font-family: var(--type-body);
+  overflow-x: clip;
 }
 
 ::selection {
-  background-color: rgba(247, 203, 69, 0.55);
-  color: var(--color-ink);
+  background-color: color-mix(in oklch, var(--yellow) 65%, white);
+  color: var(--ink);
 }
 
 .notebook-shell {
-  width: min(100% - 2rem, 1280px);
+  width: min(100% - 2rem, 80rem);
   min-height: 100vh;
-  margin: clamp(0.5rem, 2.2vw, 2rem) auto;
+  margin: clamp(0.5rem, 2.2vw, 1.5rem) auto;
   overflow: clip;
-  background-color: #fbfaf6;
-  background-image: linear-gradient(to bottom, rgba(207, 202, 188, 0.22) 1px, transparent 1px);
-  background-size: 100% 32px;
-  border: 1px solid #e7e3d8;
-  border-radius: 1.1rem;
-  box-shadow: 0 18px 60px -30px rgba(41, 37, 24, 0.24);
+  background-color: var(--paper);
+  background-image: linear-gradient(to bottom, color-mix(in oklch, var(--rule) 72%, transparent) 1px, transparent 1px);
+  background-size: 100% 2rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-feature);
+  box-shadow: 0 1.125rem 3.75rem -1.875rem oklch(25% 0.02 80 / 24%);
 }
 
 .notebook-shell::before {
   content: '';
   display: block;
-  height: 5px;
-  background: linear-gradient(90deg, #f6b2a6 0 34%, #f7cb45 34% 67%, #9be4c4 67%);
+  height: 0.25rem;
+  background: linear-gradient(90deg, var(--pink) 0 34%, var(--yellow) 34% 67%, var(--green) 67%);
 }
 
 .notebook-section {
   position: relative;
-  border-top: 1px solid rgba(93, 89, 75, 0.14);
+  border-top: 1px solid color-mix(in oklch, var(--rule-strong) 54%, transparent);
 }
 
 .notebook-card {
-  background: rgba(255, 254, 250, 0.94);
-  border: 1px solid #e5e1d6;
-  border-radius: 0.9rem;
-  box-shadow: 0 8px 22px -18px rgba(32, 30, 22, 0.4);
+  background: color-mix(in oklch, var(--paper-raised) 94%, transparent);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
 }
 
-.notebook-card.note-yellow { background: #fff8d8; }
-.notebook-card.note-mint { background: #e8f8ef; }
-.notebook-card.note-pink { background: #ffebe7; }
+.notebook-card.note-yellow { background: color-mix(in oklch, var(--yellow) 24%, var(--paper-raised)); }
+.notebook-card.note-mint { background: color-mix(in oklch, var(--green) 13%, var(--paper-raised)); }
+.notebook-card.note-pink { background: color-mix(in oklch, var(--pink) 12%, var(--paper-raised)); }
+.notebook-card.note-blue { background: color-mix(in oklch, var(--blue) 10%, var(--paper-raised)); }
 
 .note-label {
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  padding: 0.35rem 0.65rem;
-  border-radius: 0.2rem;
-  background: #f7cb45;
-  color: #191a18;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
+  padding: var(--space-3xs) var(--space-2xs);
+  border-radius: var(--radius-note);
+  background: var(--yellow);
+  color: var(--ink);
+  font-family: var(--type-code);
+  font-size: 0.625rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.hand-note {
-  font-family: var(--font-hand);
-  font-style: italic;
+.hand-note { font-family: var(--type-handwritten); font-style: italic; }
+.pixel-wordmark { font-family: var(--type-wordmark); letter-spacing: 0.02em; line-height: 1.35; }
+.nav-paper { background: color-mix(in oklch, var(--paper) 94%, transparent); backdrop-filter: blur(12px); }
+
+.project-showcase {
+  color: var(--paper-raised);
+  background: var(--ink);
+  border: 1px solid color-mix(in oklch, var(--paper-raised) 15%, transparent);
+  border-radius: var(--radius-feature);
+  box-shadow: 0 1.25rem 2.5rem -1.25rem oklch(18.2% 0.003 264 / 45%);
+}
+
+.project-tab-list { scrollbar-width: thin; scrollbar-color: color-mix(in oklch, var(--yellow) 58%, var(--ink)) transparent; }
+.project-tab[aria-pressed='true'] { color: var(--ink); background: var(--yellow); border-color: var(--yellow); }
+
+.timeline-list { position: relative; }
+.timeline-list::before {
+  position: absolute;
+  content: '';
+  inset-block: 1rem 1.5rem;
+  inset-inline-start: 0.7rem;
+  width: 1px;
+  background: var(--rule-strong);
+}
+.timeline-marker {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin: 0.25rem 0 0 0.25rem;
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 1px var(--rule-strong);
 }
 
 a:focus-visible,
-button:focus-visible {
-  outline: 3px solid #2563eb;
-  outline-offset: 3px;
-}
+button:focus-visible { outline: 3px solid var(--focus); outline-offset: 0.1875rem; }
+
+/* Slop review: no gradient text, generic card grid, nested cards, or fake chrome.
+   Responsive overflow clipped at page edges; motion has reduced-motion fallback.
+   Contrast reviewed for paper/ink and showcase surfaces. */
 
 @media (max-width: 640px) {
-  .notebook-shell {
-    width: 100%;
-    margin: 0;
-    border-radius: 0;
-    border-inline: 0;
-  }
+  .notebook-shell { width: 100%; margin: 0; border-radius: 0; border-inline: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
