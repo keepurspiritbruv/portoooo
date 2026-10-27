@@ -7,11 +7,14 @@ interface NavbarProps {
   introComplete?: boolean
 }
 
-const navLinks: NavLink[] = [
+interface PortfolioNavLink extends NavLink {
+  activeSections?: string[]
+}
+
+const navLinks: PortfolioNavLink[] = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Experience & Projects', href: '#experience', activeSections: ['experience', 'projects'] },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -52,6 +55,8 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
 
   const showBg = scrolled
   const closeMenu = () => setMobileOpen(false)
+  const isLinkActive = (link: PortfolioNavLink) =>
+    (link.activeSections ?? [link.href.slice(1)]).includes(activeSection)
 
   return (
     <motion.nav
@@ -72,7 +77,7 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
 
         <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => {
-            const active = activeSection === link.href.slice(1)
+            const active = isLinkActive(link)
             return (
               <a
                 key={link.href}
@@ -114,9 +119,9 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
                   key={link.href}
                   href={link.href}
                   onClick={closeMenu}
-                  aria-current={activeSection === link.href.slice(1) ? 'location' : undefined}
+                  aria-current={isLinkActive(link) ? 'location' : undefined}
                   className={`rounded-sm px-3 py-2 text-left font-mono text-[10px] tracking-[0.04em] uppercase transition-colors ${
-                    activeSection === link.href.slice(1) ? 'bg-accent text-ink' : 'text-ink-muted hover:bg-paper-shadow'
+                    isLinkActive(link) ? 'bg-accent text-ink' : 'text-ink-muted hover:bg-paper-shadow'
                   }`}
                 >
                   {link.label}
