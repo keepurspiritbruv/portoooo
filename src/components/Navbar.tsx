@@ -28,7 +28,7 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
   }, [])
 
   useEffect(() => {
-    const sectionIds = ['home', 'about', 'projects', 'experience', 'skills', 'contact']
+    const sectionIds = ['home', 'about', 'experience', 'projects', 'skills', 'contact']
     const updateActiveSection = () => {
       const readingLine = Math.min(160, window.innerHeight * 0.3)
       const currentSection = sectionIds
