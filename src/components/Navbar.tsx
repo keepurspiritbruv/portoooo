@@ -10,8 +10,8 @@ interface NavbarProps {
 const navLinks: NavLink[] = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -28,23 +28,26 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
   }, [])
 
   useEffect(() => {
-    const sections = navLinks.map((link) => link.href.slice(1))
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-        if (visible) setActiveSection(visible.target.id)
-      },
-      { rootMargin: '-20% 0px -65% 0px', threshold: [0, 0.1, 0.25, 0.5] },
-    )
+    const sectionIds = ['home', 'about', 'projects', 'experience', 'skills', 'contact']
+    const updateActiveSection = () => {
+      const readingLine = Math.min(160, window.innerHeight * 0.3)
+      const currentSection = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter((section): section is HTMLElement => section !== null)
+        .filter((section) => section.getBoundingClientRect().top <= readingLine)
+        .at(-1)
 
-    sections.forEach((id) => {
-      const section = document.getElementById(id)
-      if (section) observer.observe(section)
-    })
+      if (currentSection) setActiveSection(currentSection.id)
+    }
 
-    return () => observer.disconnect()
+    updateActiveSection()
+    window.addEventListener('scroll', updateActiveSection, { passive: true })
+    window.addEventListener('resize', updateActiveSection)
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection)
+      window.removeEventListener('resize', updateActiveSection)
+    }
   }, [])
 
   const showBg = scrolled
