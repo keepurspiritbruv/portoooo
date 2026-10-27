@@ -36,6 +36,8 @@ export const projects: Project[] = [
     techStack: ['Rule-based Early Warning', 'BMKG Forecasts', 'Local Knowledge'],
     category: 'fullstack',
     images: [],
+    githubUrl: 'https://github.com/keepurspiritbruv/peringatancuacav3',
+    liveUrl: 'https://samudraapp.id/',
     year: 2026,
     featured: true,
   },
