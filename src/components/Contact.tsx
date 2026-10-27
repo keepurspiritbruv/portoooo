@@ -48,13 +48,23 @@ const Contact = () => {
             </div>
           </div>
 
-          <a
-            href="mailto:dhimasnurhanindya@gmail.com?subject=Job%20Opportunity"
-            className="group inline-flex items-center gap-2 rounded-sm bg-ink px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-wide text-paper-raised transition-colors hover:bg-blue"
-          >
-            Say Hello
-            <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="mailto:dhimasnurhanindya@gmail.com?subject=Job%20Opportunity"
+              className="group inline-flex items-center gap-2 rounded-sm bg-ink px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-wide text-paper-raised transition-colors hover:bg-blue"
+            >
+              Say Hello
+              <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1kEbVDZZm2MgPlyxIxktmJQ1Jxf7YBYE2/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-sm border border-rule-strong bg-paper-raised px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-wide text-ink transition-colors hover:border-yellow hover:bg-yellow"
+            >
+              My CV <ArrowUpRight size={14} />
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

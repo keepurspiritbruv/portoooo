@@ -61,7 +61,7 @@ const Hero = ({ introComplete }: HeroProps) => (
           Say hello <ArrowUpRight size={15} />
         </a>
         <a href="https://drive.google.com/file/d/1kEbVDZZm2MgPlyxIxktmJQ1Jxf7YBYE2/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-sm border border-rule-strong bg-paper-raised px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.05em] text-ink transition hover:border-yellow hover:bg-yellow">
-          Google Drive <ArrowUpRight size={15} />
+          My CV <ArrowUpRight size={15} />
         </a>
       </motion.div>
 
