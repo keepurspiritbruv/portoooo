@@ -39,7 +39,7 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="flex flex-col gap-3">
           {projects.map((project, index) => (
             <ProjectItem
               key={project.id}
