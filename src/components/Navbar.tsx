@@ -39,37 +39,33 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
       initial={{ y: -20, opacity: 0 }}
       animate={introComplete ? { y: 0, opacity: 1 } : {}}
       transition={{ delay: 0.8, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        showBg ? 'bg-[#FAFAF8]/80 backdrop-blur-md border-b border-black/5' : 'bg-transparent'
+      className={`sticky top-0 z-50 border-b border-[#e9e5da] transition-all duration-300 ${
+        showBg ? 'bg-[#fbfaf6]/95 backdrop-blur-md' : 'bg-[#fbfaf6]/80'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-10 py-3 flex items-center justify-between gap-4">
         <Link
           to="/"
-          className="font-serif text-lg tracking-wide text-[#1a1a1a] hover:text-teal-600 transition-colors"
+          className="flex items-center gap-2 font-serif text-lg tracking-wide text-[#1a1a1a] hover:text-[#a35b31] transition-colors"
         >
-          murguy.
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f7cb45] text-xs font-bold">M</span>
+          <span>murguy<span className="text-[#b66f44]">.</span></span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
             const active = location.pathname === link.href
             return (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`relative text-xs tracking-[0.15em] uppercase transition-colors group ${
+                className={`relative rounded px-3 py-2 text-[11px] tracking-[0.08em] uppercase transition-colors group ${
                   active
-                    ? 'text-[#1a1a1a]'
-                    : 'text-[#1a1a1a]/40 hover:text-[#1a1a1a]'
+                    ? 'bg-[#f7cb45] text-[#191a18]'
+                    : 'text-[#65645d] hover:bg-[#f1eee4] hover:text-[#191a18]'
                 }`}
               >
                 {link.label}
-                <span
-                  className={`absolute -bottom-1 left-0 h-[1px] bg-teal-500 transition-all duration-500 ${
-                    active ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}
-                />
               </Link>
             )
           })}
@@ -79,6 +75,7 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
           className="md:hidden text-[#1a1a1a]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -90,13 +87,13 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#FAFAF8]/95 backdrop-blur-md border-b border-black/5 overflow-hidden"
+            className="md:hidden bg-[#fbfaf6] border-t border-[#e9e5da] overflow-hidden"
           >
-            <div className="flex flex-col px-6 py-4 gap-4">
+            <div className="flex flex-col px-4 py-3 gap-1">
               <Link
                 to="/"
                 className={`text-left text-xs tracking-[0.15em] uppercase transition-colors ${
-                  location.pathname === '/' ? 'text-[#1a1a1a]' : 'text-[#1a1a1a]/40'
+                  location.pathname === '/' ? 'bg-[#f7cb45] text-[#191a18]' : 'text-[#65645d]'
                 }`}
               >
                 Home
@@ -105,8 +102,8 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`text-left text-xs tracking-[0.15em] uppercase transition-colors ${
-                    location.pathname === link.href ? 'text-[#1a1a1a]' : 'text-[#1a1a1a]/40'
+                  className={`rounded px-3 py-2 text-left text-xs tracking-[0.1em] uppercase transition-colors ${
+                    location.pathname === link.href ? 'bg-[#f7cb45] text-[#191a18]' : 'text-[#65645d]'
                   }`}
                 >
                   {link.label}

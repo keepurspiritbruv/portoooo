@@ -6,30 +6,24 @@ const Skills = () => {
   const { ref, isInView, variants } = useScrollReveal()
 
   return (
-    <section className="py-32 md:py-40 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+    <section id="skills" className="notebook-section px-5 py-20 sm:px-10 md:px-14 md:py-28 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
           variants={variants}
         >
-          <p className="uppercase tracking-[0.4em] text-xs md:text-sm mb-8 font-mono text-[#1a1a1a]/50">
-            Skills
-          </p>
-          <h2 className="text-[clamp(2.5rem,7vw,5rem)] leading-[0.95] font-light tracking-tight text-[#1a1a1a] mb-8 pl-0 md:pl-10">
-            <span className="font-serif italic block">Tools &amp;</span>
-            <span className="block">
-              <span className="font-light text-[#1a1a1a]/40">my</span>{' '}
-              <span className="font-medium">abilities.</span>
-            </span>
+          <p className="note-label mb-5">Notes &amp; tools</p>
+          <h2 className="mb-5 max-w-3xl text-[clamp(2.3rem,6vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[#191a18]">
+            What I bring to a project.
           </h2>
-          <p className="text-sm font-light text-[#1a1a1a]/50 mb-16 pl-0 md:pl-10">
-            Technologies and expertise that power my creations
+          <p className="mb-10 max-w-xl text-sm leading-relaxed text-[#65645d]">
+            The tools and skills I use across design, development, and visual storytelling.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pl-0 md:pl-10">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((cat, catIndex) => (
             <motion.div
               key={cat.category}
@@ -41,17 +35,17 @@ const Skills = () => {
                 duration: 0.5,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className="group p-6 rounded-2xl border border-[#1a1a1a]/5 hover:border-[#1a1a1a]/15 transition-all duration-500 bg-white/50"
+              className={`notebook-card group p-5 transition-transform duration-300 hover:-translate-y-1 sm:p-6 ${catIndex % 3 === 0 ? 'note-yellow' : catIndex % 3 === 1 ? 'note-mint' : 'note-pink'}`}
             >
-              <div className="font-mono text-[10px] text-[#1a1a1a]/30 mb-3">
+              <div className="mb-3 font-mono text-[10px] text-[#807b6e]">
                 {String(catIndex + 1).padStart(2, '0')}
               </div>
-              <h3 className="text-sm font-medium text-[#1a1a1a] tracking-wide mb-4">{cat.category}</h3>
+              <h3 className="mb-4 text-sm font-semibold tracking-wide text-[#191a18]">{cat.category}</h3>
               <div className="flex flex-wrap gap-1.5">
                 {cat.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-[10px] px-3 py-1 rounded-full border border-[#1a1a1a]/8 text-[#1a1a1a]/40 group-hover:border-teal-500/20 group-hover:text-teal-600 transition-colors duration-500"
+                    className="rounded bg-white/80 px-2.5 py-1.5 text-[10px] text-[#55544e] transition-colors group-hover:bg-white"
                   >
                     {skill}
                   </span>

@@ -4,7 +4,7 @@ import Experience from '../components/Experience'
 const ExperiencePage = () => {
   return (
     <PageTransition>
-      <div className="pt-20">
+      <div>
         <Experience />
       </div>
     </PageTransition>

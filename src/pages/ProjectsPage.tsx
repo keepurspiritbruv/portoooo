@@ -4,7 +4,7 @@ import Projects from '../components/Projects'
 const ProjectsPage = () => {
   return (
     <PageTransition>
-      <div className="pt-20">
+      <div>
         <Projects />
       </div>
     </PageTransition>

@@ -4,7 +4,7 @@ import About from '../components/About'
 const AboutPage = () => {
   return (
     <PageTransition>
-      <div className="pt-20">
+      <div>
         <About />
       </div>
     </PageTransition>

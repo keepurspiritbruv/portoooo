@@ -28,7 +28,7 @@ const About = () => {
   const { ref, isInView, variants } = useScrollReveal()
 
   return (
-    <section className="py-32 md:py-40 relative overflow-hidden">
+    <section id="about" className="notebook-section px-5 py-20 sm:px-10 md:px-14 md:py-28 relative overflow-hidden">
       <div className="pointer-events-none absolute top-20 right-[10%] w-40 h-40 md:w-64 md:h-64 opacity-20">
         <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#1a1a1a]">
           <path d="M50 5 L95 30 L95 70 L50 95 L5 70 L5 30 Z" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
@@ -36,41 +36,35 @@ const About = () => {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
           variants={variants}
         >
-          <p className="uppercase tracking-[0.4em] text-xs md:text-sm mb-8 font-mono text-[#1a1a1a]/50">
-            About
-          </p>
+          <p className="note-label mb-5">A bit about me</p>
 
-          <h2 className="text-[clamp(2.5rem,7vw,5rem)] leading-[0.95] font-light tracking-tight text-[#1a1a1a] mb-16 pl-0 md:pl-10">
-            <span className="font-serif italic block">A bit about</span>
-            <span className="block">
-              <span className="font-light text-[#1a1a1a]/40">my</span>{' '}
-              <span className="font-medium">journey.</span>
-            </span>
+          <h2 className="mb-10 max-w-3xl text-[clamp(2.3rem,6vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[#191a18]">
+            Curious about how thoughtful software can make everyday things easier.
           </h2>
         </motion.div>
 
-        <div className="flex flex-col md:flex-row justify-between gap-16 pl-0 md:pl-10">
+        <div className="grid gap-6 md:grid-cols-[1.3fr_0.7fr]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="md:w-1/2 space-y-6"
+            className="notebook-card space-y-5 p-6 sm:p-8"
           >
-            <p className="text-sm md:text-base font-light leading-[1.8] text-[#1a1a1a]/60">
+            <p className="text-sm leading-[1.85] text-[#55544e] md:text-base">
               As an Information Technology student at Gadjah Mada University, I possess strong
               skills in programming, UI/UX development, software development, and data analysis.
               With a passion for innovation and a commitment to excellence, I am eager to apply my
               expertise to drive progress and contribute to the success of any team or organization.
             </p>
-            <p className="text-sm md:text-base font-light leading-[1.8] text-[#1a1a1a]/60">
+            <p className="text-sm leading-[1.85] text-[#55544e] md:text-base">
               More likely a UI/UX Designer or Frontend Engineer. I am also interested in expanding
               my skills and finding new experiences that challenge my creative and technical
               boundaries.
@@ -82,10 +76,10 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="md:w-5/12 space-y-6"
+            className="notebook-card flex flex-col justify-center space-y-5 p-6 sm:p-8"
           >
-            <h3 className="text-lg font-serif italic text-[#1a1a1a]">Let's Connect</h3>
-            <p className="text-xs text-[#1a1a1a]/40">
+            <h3 className="text-xl font-semibold text-[#191a18]">Find me around the web</h3>
+            <p className="text-sm text-[#65645d]">
               Feel free to reach out through any of my social platforms.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -95,7 +89,7 @@ const About = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-[#1a1a1a]/10 flex items-center justify-center text-[#1a1a1a]/40 hover:border-teal-500 hover:text-teal-600 transition-all duration-300"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ded9cd] bg-white text-[#65645d] transition-all hover:-translate-y-0.5 hover:border-[#e2ba39] hover:text-[#191a18]"
                   aria-label={social.name}
                 >
                   <social.icon size={16} />

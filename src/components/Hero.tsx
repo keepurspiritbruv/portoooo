@@ -1,125 +1,76 @@
 import { motion } from 'framer-motion'
+import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 interface HeroProps {
   introComplete: boolean
 }
 
-const lineVariants = {
-  hidden: { y: '100%' },
-  visible: (i: number) => ({
-    y: '0%',
-    transition: {
-      delay: 0.3 + i * 0.15,
-      duration: 0.9,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
-  }),
-}
+const Hero = ({ introComplete }: HeroProps) => (
+  <section className="relative flex min-h-[min(760px,calc(100svh-4.5rem))] items-center overflow-hidden px-5 py-20 sm:px-10 md:px-14">
+    <div className="pointer-events-none absolute right-[9%] top-[16%] hidden rotate-6 border border-[#e7c644] bg-[#ffe889] px-4 py-2 font-serif text-sm italic text-[#494331] shadow-sm md:block">
+      Product-minded builder
+    </div>
+    <div className="pointer-events-none absolute bottom-[17%] right-[13%] hidden -rotate-3 rounded-full border border-[#f1a89d] p-5 text-center font-mono text-[9px] leading-relaxed tracking-widest text-[#a35b50] lg:block">
+      YOGYAKARTA<br />INDONESIA
+    </div>
 
-const Hero = ({ introComplete }: HeroProps) => {
-  return (
-    <section className="relative min-h-[90vh] md:min-h-[110vh] flex items-center justify-center overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 opacity-[0.03]">
-        <svg className="absolute left-[10%] top-[5%] h-[60vh] w-[60vh] md:left-[55%] md:top-[-10%] md:h-[80vh] md:w-[80vh] opacity-20" viewBox="0 0 400 400" fill="none">
-          <circle cx="200" cy="200" r="150" stroke="currentColor" strokeWidth="0.5" />
-          <circle cx="200" cy="200" r="120" stroke="currentColor" strokeWidth="0.3" strokeDasharray="4 4" />
-        </svg>
-        <svg className="absolute bottom-[10%] right-[-5%] h-[40vh] w-[40vh] md:left-[15%] md:top-[20%] md:h-[50vh] md:w-[50vh] opacity-30" viewBox="0 0 300 300" fill="none">
-          <path d="M50,150 L150,50 L250,150 L150,250 Z" stroke="currentColor" strokeWidth="0.5" />
-          <circle cx="150" cy="50" r="2" fill="currentColor" />
-          <circle cx="250" cy="150" r="2" fill="currentColor" />
-          <circle cx="150" cy="250" r="2" fill="currentColor" />
-          <circle cx="50" cy="150" r="2" fill="currentColor" />
-        </svg>
+    <div className="relative z-10 mx-auto w-full max-w-5xl">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={introComplete ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.55 }}
+        className="mb-6 flex flex-wrap items-center gap-3"
+      >
+        <span className="note-label">Frontend Engineer</span>
+        <span className="hand-note text-lg text-[#696456]">&amp; UI/UX Designer</span>
+      </motion.div>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 24 }}
+        animate={introComplete ? { opacity: 1, y: 0 } : {}}
+        transition={{ delay: 0.1, duration: 0.75 }}
+        className="font-sans text-[clamp(3.5rem,13vw,9rem)] font-black leading-[0.82] tracking-[-0.075em] text-[#191a18]"
+      >
+        MURGUY<span className="text-[#e1ae27]">.</span>
+      </motion.h1>
+
+      <div className="my-8 flex items-center gap-3 text-sm text-[#807b6e] sm:my-10">
+        <span className="h-px w-8 bg-[#b9b3a4]" />
+        <span className="font-mono text-[10px] uppercase tracking-[0.16em]">Dhimas Nurhanindya Putra</span>
+        <span className="hidden sm:inline">—</span>
+        <span className="hidden sm:inline">Yogyakarta, Indonesia</span>
       </div>
 
-      <div className="container relative z-10 px-6 md:px-12 max-w-5xl w-full">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={introComplete ? { opacity: 1 } : {}}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="mb-6"
-        >
-          <span className="font-mono text-xs md:text-sm uppercase tracking-[0.2em] text-[#1a1a1a]/50">
-            Intro — Creative Developer
-          </span>
-        </motion.div>
-
-        <h1 className="text-[clamp(2.5rem,9vw,6rem)] leading-[0.95] font-light tracking-tight text-[#1a1a1a]">
-          <div className="overflow-hidden pb-3">
-            <motion.div variants={lineVariants} initial="hidden" animate={introComplete ? 'visible' : 'hidden'} custom={0}>
-              Creative
-            </motion.div>
-          </div>
-          <div className="overflow-hidden pb-3">
-            <motion.div variants={lineVariants} initial="hidden" animate={introComplete ? 'visible' : 'hidden'} custom={1}>
-              <span className="font-serif italic font-normal">Developer</span> &amp;
-            </motion.div>
-          </div>
-          <div className="overflow-hidden pb-3">
-            <motion.div variants={lineVariants} initial="hidden" animate={introComplete ? 'visible' : 'hidden'} custom={2}>
-              <span className="font-serif italic font-normal">Designer</span> who builds
-            </motion.div>
-          </div>
-          <div className="overflow-hidden pb-3">
-            <motion.div variants={lineVariants} initial="hidden" animate={introComplete ? 'visible' : 'hidden'} custom={3}>
-              <span className="font-medium">stunning</span> work.
-            </motion.div>
-          </div>
-        </h1>
-
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={introComplete ? { scaleX: 1 } : {}}
-          transition={{ delay: 1.3, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-          className="w-24 h-[1px] bg-[#1a1a1a]/20 mt-8 mb-8 origin-left"
-        />
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={introComplete ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.6, duration: 0.6 }}
-          className="text-sm md:text-base font-light leading-relaxed text-[#1a1a1a]/60 max-w-lg mb-10"
-        >
-          Frontend Engineer &amp; UI/UX Designer based in Yogyakarta. Turning ideas into
-          clean, functional, and meaningful digital experiences.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={introComplete ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.9, duration: 0.6 }}
-          className="flex flex-col md:flex-row items-start md:items-center gap-4"
-        >
-          <Link
-            to="/projects"
-            className="px-8 py-4 rounded-full bg-[#1a1a1a] text-white text-xs font-medium tracking-[0.1em] uppercase hover:bg-[#333] transition-colors"
-          >
-            View Creations
-          </Link>
-          <Link
-            to="/contact"
-            className="px-8 py-4 rounded-full border border-[#1a1a1a]/20 text-[#1a1a1a] text-xs font-medium tracking-[0.1em] uppercase hover:bg-[#1a1a1a]/5 transition-colors"
-          >
-            Start a Project
-          </Link>
-        </motion.div>
-      </div>
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        animate={introComplete ? { opacity: 1, y: 0 } : {}}
+        transition={{ delay: 0.25, duration: 0.55 }}
+        className="max-w-2xl text-lg leading-relaxed text-[#55544e] sm:text-xl md:text-2xl"
+      >
+        Turning ideas into <span className="hand-note rounded-sm bg-[#fff0ac] px-1 text-[#6b5320]">clean, functional</span>,
+        meaningful digital experiences.
+      </motion.p>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={introComplete ? { opacity: 1 } : {}}
-        transition={{ delay: 2.4, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        initial={{ opacity: 0, y: 12 }}
+        animate={introComplete ? { opacity: 1, y: 0 } : {}}
+        transition={{ delay: 0.4, duration: 0.55 }}
+        className="mt-9 flex flex-wrap items-center gap-3"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-[#1a1a1a]/30">Scroll</span>
-        <div className="h-12 w-[1px] bg-[#1a1a1a]/10 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-[#1a1a1a]/40 animate-slide-down" />
-        </div>
+        <Link to="/projects" className="inline-flex items-center gap-2 rounded-md border border-[#191a18] bg-[#191a18] px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-[#35362f]">
+          View my work <ArrowUpRight size={15} />
+        </Link>
+        <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-[#d8d3c7] bg-[#fffefa] px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-[#35362f] transition hover:border-[#b9a23c] hover:bg-[#fff7d7]">
+          Say hello <ArrowUpRight size={15} />
+        </Link>
       </motion.div>
-    </section>
-  )
-}
+
+      <a href="#about" className="mt-16 inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.16em] text-[#807b6e] hover:text-[#191a18] sm:mt-20">
+        Scroll to explore <ArrowDown size={13} />
+      </a>
+    </div>
+  </section>
+)
 
 export default Hero

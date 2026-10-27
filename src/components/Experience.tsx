@@ -13,7 +13,7 @@ const Experience = () => {
   const { ref, isInView, variants } = useScrollReveal()
 
   return (
-    <section className="py-32 md:py-40 relative overflow-hidden">
+    <section id="experience" className="notebook-section px-5 py-20 sm:px-10 md:px-14 md:py-28 relative overflow-hidden">
       <div className="pointer-events-none absolute top-1/3 right-[2%] w-24 h-24 md:w-36 md:h-36 opacity-15">
         <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#1a1a1a]">
           <rect x="10" y="10" width="80" height="80" stroke="currentColor" strokeWidth="0.5" rx="4" />
@@ -21,26 +21,20 @@ const Experience = () => {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
           variants={variants}
         >
-          <p className="uppercase tracking-[0.4em] text-xs md:text-sm mb-8 font-mono text-[#1a1a1a]/50">
-            Experience
-          </p>
-          <h2 className="text-[clamp(2.5rem,7vw,5rem)] leading-[0.95] font-light tracking-tight text-[#1a1a1a] mb-16 pl-0 md:pl-10">
-            <span className="font-serif italic block">Where I've</span>
-            <span className="block">
-              <span className="font-light text-[#1a1a1a]/40">been</span>{' '}
-              <span className="font-medium">building.</span>
-            </span>
+          <p className="note-label mb-5">Experience &amp; journey</p>
+          <h2 className="mb-10 max-w-3xl text-[clamp(2.3rem,6vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[#191a18]">
+            The places and people that shaped my work.
           </h2>
         </motion.div>
 
-        <div className="space-y-0 pl-0 md:pl-10">
+        <div className="grid gap-4 md:grid-cols-2">
           {experiences.map((exp, index) => {
             const Icon = iconMap[exp.type]
             return (
@@ -54,21 +48,21 @@ const Experience = () => {
                   duration: 0.6,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
-                className="flex gap-6 py-8 border-b border-[#1a1a1a]/8 group"
+                className="notebook-card flex gap-4 p-5 transition-transform hover:-translate-y-1 sm:p-6"
               >
                 <div className="shrink-0 mt-1">
-                  <div className="w-10 h-10 rounded-full border border-[#1a1a1a]/10 flex items-center justify-center text-[#1a1a1a]/30 group-hover:border-teal-500 group-hover:text-teal-600 transition-colors duration-500">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e4d27b] bg-[#fff5c8] text-[#5e5432] transition-colors">
                     <Icon size={16} />
                   </div>
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
-                    <h3 className="text-base font-serif italic text-[#1a1a1a]">{exp.role}</h3>
-                    <span className="text-[10px] text-[#1a1a1a]/30 shrink-0 font-mono">{exp.period}</span>
+                  <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                    <h3 className="text-base font-semibold text-[#191a18]">{exp.role}</h3>
+                    <span className="w-fit shrink-0 rounded bg-[#f3f0e8] px-2 py-1 font-mono text-[10px] text-[#65645d]">{exp.period}</span>
                   </div>
-                  <p className="text-xs text-teal-600/60 mb-3 font-light">{exp.company}</p>
-                  <p className="text-xs font-light leading-[1.8] text-[#1a1a1a]/50">{exp.description}</p>
+                  <p className="mb-3 text-xs font-medium text-[#a35b31]">{exp.company}</p>
+                  <p className="text-sm leading-[1.75] text-[#65645d]">{exp.description}</p>
                 </div>
               </motion.div>
             )

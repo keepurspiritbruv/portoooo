@@ -4,7 +4,7 @@ import Skills from '../components/Skills'
 const SkillsPage = () => {
   return (
     <PageTransition>
-      <div className="pt-20">
+      <div>
         <Skills />
       </div>
     </PageTransition>
