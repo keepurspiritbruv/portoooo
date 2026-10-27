@@ -38,6 +38,7 @@ export const projects: Project[] = [
     images: [],
     githubUrl: 'https://github.com/keepurspiritbruv/peringatancuacav3',
     liveUrl: 'https://samudraapp.id/',
+    driveUrl: 'https://drive.google.com/file/d/1kEbVDZZm2MgPlyxIxktmJQ1Jxf7YBYE2/view?usp=sharing',
     year: 2026,
     featured: true,
   },

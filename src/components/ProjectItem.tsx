@@ -113,6 +113,16 @@ const ProjectItem = ({ project, index, isExpanded, onToggle }: ProjectItemProps)
                     {project.category === 'other' ? 'View Project' : 'Live Demo'}
                   </a>
                 )}
+                {project.driveUrl && (
+                  <a
+                    href={project.driveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-md border border-[#d8d3c7] bg-white px-4 py-2.5 text-xs text-[#35362f] transition-colors hover:border-[#a35b31]"
+                  >
+                    <ExternalLink size={12} /> Google Drive
+                  </a>
+                )}
               </div>
 
               {project.images.length > 1 && (

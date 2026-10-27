@@ -9,6 +9,7 @@ export interface Project {
   images: string[]
   githubUrl?: string
   liveUrl?: string
+  driveUrl?: string
   year: number
   featured: boolean
 }
