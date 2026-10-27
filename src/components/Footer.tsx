@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 const Footer = () => {
@@ -16,11 +15,11 @@ const Footer = () => {
           <div>
             <p className="text-xs font-medium text-[#1a1a1a] mb-3 tracking-wide">Explore</p>
             <div className="flex flex-wrap gap-x-5 gap-y-2">
-              <Link to="/about" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">About</Link>
-              <Link to="/projects" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">Projects</Link>
-              <Link to="/experience" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">Experience</Link>
-              <Link to="/skills" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">Skills</Link>
-              <Link to="/contact" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">Contact</Link>
+              <a href="#about" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">About</a>
+              <a href="#projects" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">Projects</a>
+              <a href="#experience" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">Experience</a>
+              <a href="#skills" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">Skills</a>
+              <a href="#contact" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">Contact</a>
             </div>
           </div>
 

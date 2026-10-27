@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import type { NavLink } from '../types'
@@ -9,17 +8,17 @@ interface NavbarProps {
 }
 
 const navLinks: NavLink[] = [
-  { label: 'About', href: '/about' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Experience', href: '/experience' },
-  { label: 'Skills', href: '/skills' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 const Navbar = ({ introComplete = true }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const location = useLocation()
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -28,11 +27,27 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
   }, [])
 
   useEffect(() => {
-    setMobileOpen(false)
-    window.scrollTo(0, 0)
-  }, [location.pathname])
+    const sections = ['home', ...navLinks.map((link) => link.href.slice(1))]
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (visible) setActiveSection(visible.target.id)
+      },
+      { rootMargin: '-20% 0px -65% 0px', threshold: [0, 0.1, 0.25, 0.5] },
+    )
 
-  const showBg = scrolled || location.pathname !== '/'
+    sections.forEach((id) => {
+      const section = document.getElementById(id)
+      if (section) observer.observe(section)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  const showBg = scrolled
+  const closeMenu = () => setMobileOpen(false)
 
   return (
     <motion.nav
@@ -44,21 +59,22 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-10 py-3 flex items-center justify-between gap-4">
-        <Link
-          to="/"
+        <a
+          href="#home"
+          onClick={closeMenu}
           className="flex items-center gap-2 font-serif text-lg tracking-wide text-[#1a1a1a] hover:text-[#a35b31] transition-colors"
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f7cb45] text-xs font-bold">M</span>
           <span>murguy<span className="text-[#b66f44]">.</span></span>
-        </Link>
+        </a>
 
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
-            const active = location.pathname === link.href
+            const active = activeSection === link.href.slice(1)
             return (
-              <Link
+              <a
                 key={link.href}
-                to={link.href}
+                href={link.href}
                 className={`relative rounded px-3 py-2 text-[11px] tracking-[0.08em] uppercase transition-colors group ${
                   active
                     ? 'bg-[#f7cb45] text-[#191a18]'
@@ -66,7 +82,7 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
                 }`}
               >
                 {link.label}
-              </Link>
+              </a>
             )
           })}
         </div>
@@ -90,24 +106,26 @@ const Navbar = ({ introComplete = true }: NavbarProps) => {
             className="md:hidden bg-[#fbfaf6] border-t border-[#e9e5da] overflow-hidden"
           >
             <div className="flex flex-col px-4 py-3 gap-1">
-              <Link
-                to="/"
-                className={`text-left text-xs tracking-[0.15em] uppercase transition-colors ${
-                  location.pathname === '/' ? 'bg-[#f7cb45] text-[#191a18]' : 'text-[#65645d]'
+              <a
+                href="#home"
+                onClick={closeMenu}
+                className={`rounded px-3 py-2 text-left text-xs tracking-[0.15em] uppercase transition-colors ${
+                  activeSection === 'home' ? 'bg-[#f7cb45] text-[#191a18]' : 'text-[#65645d]'
                 }`}
               >
                 Home
-              </Link>
+              </a>
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.href}
-                  to={link.href}
+                  href={link.href}
+                  onClick={closeMenu}
                   className={`rounded px-3 py-2 text-left text-xs tracking-[0.1em] uppercase transition-colors ${
-                    location.pathname === link.href ? 'bg-[#f7cb45] text-[#191a18]' : 'text-[#65645d]'
+                    activeSection === link.href.slice(1) ? 'bg-[#f7cb45] text-[#191a18]' : 'text-[#65645d]'
                   }`}
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
             </div>
           </motion.div>

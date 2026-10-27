@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
 
 interface HeroProps {
   introComplete: boolean
 }
 
 const Hero = ({ introComplete }: HeroProps) => (
-  <section className="relative flex min-h-[min(760px,calc(100svh-4.5rem))] items-center overflow-hidden px-5 py-20 sm:px-10 md:px-14">
+  <section id="home" className="relative flex min-h-[min(760px,calc(100svh-4.5rem))] items-center overflow-hidden px-5 py-20 sm:px-10 md:px-14">
     <div className="pointer-events-none absolute right-[9%] top-[16%] hidden rotate-6 border border-[#e7c644] bg-[#ffe889] px-4 py-2 font-serif text-sm italic text-[#494331] shadow-sm md:block">
       Product-minded builder
     </div>
@@ -58,12 +57,12 @@ const Hero = ({ introComplete }: HeroProps) => (
         transition={{ delay: 0.4, duration: 0.55 }}
         className="mt-9 flex flex-wrap items-center gap-3"
       >
-        <Link to="/projects" className="inline-flex items-center gap-2 rounded-md border border-[#191a18] bg-[#191a18] px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-[#35362f]">
+        <a href="#projects" className="inline-flex items-center gap-2 rounded-md border border-[#191a18] bg-[#191a18] px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-[#35362f]">
           View my work <ArrowUpRight size={15} />
-        </Link>
-        <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-[#d8d3c7] bg-[#fffefa] px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-[#35362f] transition hover:border-[#b9a23c] hover:bg-[#fff7d7]">
+        </a>
+        <a href="#contact" className="inline-flex items-center gap-2 rounded-md border border-[#d8d3c7] bg-[#fffefa] px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-[#35362f] transition hover:border-[#b9a23c] hover:bg-[#fff7d7]">
           Say hello <ArrowUpRight size={15} />
-        </Link>
+        </a>
       </motion.div>
 
       <a href="#about" className="mt-16 inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.16em] text-[#807b6e] hover:text-[#191a18] sm:mt-20">
