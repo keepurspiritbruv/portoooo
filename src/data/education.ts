@@ -19,5 +19,6 @@ export const achievements: Achievement[] = [
     administeredBy:
       'Research and Development for Societal Impact (RDSI), Faculty of Economics and Business, Universitas Gadjah Mada',
     totalScore: 517,
+    certificationUrl: 'https://drive.google.com/file/d/1eEc9vFXl69TySe1Q4gOMtnqYJwr0VRrH/view?usp=sharing',
   },
 ]

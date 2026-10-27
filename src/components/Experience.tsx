@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { GraduationCap, Briefcase, Users, HeartHandshake, Award } from 'lucide-react'
+import { GraduationCap, Briefcase, Users, HeartHandshake, Award, ExternalLink } from 'lucide-react'
 import { experiences } from '../data/experience'
 import { achievements, education } from '../data/education'
 import useScrollReveal from '../hooks/useScrollReveal'
@@ -88,13 +88,18 @@ const Experience = () => {
           <article className="notebook-card note-pink p-6 sm:p-7">
             <div className="mb-4 flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full border border-rule bg-paper-raised text-orange"><Award size={16} /></div>
-              <p className="note-label">Achievement</p>
+              <p className="note-label">Certification</p>
             </div>
             {achievements.map((achievement) => (
               <div key={achievement.name}>
                 <h3 className="font-display text-lg font-bold text-ink">{achievement.name}</h3>
                 <p className="mt-1 font-mono text-[10px] text-orange">{achievement.year} · Total score {achievement.totalScore}</p>
                 <p className="mt-3 text-sm leading-[1.75] text-ink-muted">{achievement.administeredBy}</p>
+                {achievement.certificationUrl && (
+                  <a href={achievement.certificationUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-wide text-ink underline decoration-rule-strong underline-offset-4 transition-colors hover:text-orange">
+                    View certification <ExternalLink size={12} />
+                  </a>
+                )}
               </div>
             ))}
           </article>

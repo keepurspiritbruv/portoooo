@@ -37,6 +37,7 @@ export interface Achievement {
   year: number
   administeredBy: string
   totalScore: number
+  certificationUrl?: string
 }
 
 export interface SkillCategory {
