@@ -8,10 +8,10 @@ interface HeroProps {
 const Hero = ({ introComplete }: HeroProps) => (
   <section id="home" className="relative flex min-h-[min(760px,calc(100svh-4.5rem))] items-center overflow-hidden px-5 py-20 sm:px-10 md:px-14">
     <div className="pointer-events-none absolute right-[9%] top-[16%] hidden rotate-6 border border-[#e7c644] bg-[#ffe889] px-4 py-2 font-serif text-sm italic text-[#494331] shadow-sm md:block">
-      Product-minded builder
+      Software developer
     </div>
     <div className="pointer-events-none absolute bottom-[17%] right-[13%] hidden -rotate-3 rounded-full border border-[#f1a89d] p-5 text-center font-mono text-[9px] leading-relaxed tracking-widest text-[#a35b50] lg:block">
-      YOGYAKARTA<br />INDONESIA
+      BANTUL<br />YOGYAKARTA
     </div>
 
     <div className="relative z-10 mx-auto w-full max-w-5xl">
@@ -21,8 +21,7 @@ const Hero = ({ introComplete }: HeroProps) => (
         transition={{ duration: 0.55 }}
         className="mb-6 flex flex-wrap items-center gap-3"
       >
-        <span className="note-label">Frontend Engineer</span>
-        <span className="hand-note text-lg text-[#696456]">&amp; UI/UX Designer</span>
+        <span className="note-label">Full-stack Software Developer</span>
       </motion.div>
 
       <motion.h1
@@ -38,7 +37,7 @@ const Hero = ({ introComplete }: HeroProps) => (
         <span className="h-px w-8 bg-[#b9b3a4]" />
         <span className="font-mono text-[10px] uppercase tracking-[0.16em]">Dhimas Nurhanindya Putra</span>
         <span className="hidden sm:inline">—</span>
-        <span className="hidden sm:inline">Yogyakarta, Indonesia</span>
+        <span className="hidden sm:inline">Bantul, Yogyakarta</span>
       </div>
 
       <motion.p
@@ -47,8 +46,7 @@ const Hero = ({ introComplete }: HeroProps) => (
         transition={{ delay: 0.25, duration: 0.55 }}
         className="max-w-2xl text-lg leading-relaxed text-[#55544e] sm:text-xl md:text-2xl"
       >
-        Turning ideas into <span className="hand-note rounded-sm bg-[#fff0ac] px-1 text-[#6b5320]">clean, functional</span>,
-        meaningful digital experiences.
+        Full-stack developer and Gadjah Mada University graduate building React interfaces, Node.js services, and IoT-connected monitoring applications. Contributed to a four-service weather platform with LSTM anomaly detection and a coastal early-warning prototype covering five locations.
       </motion.p>
 
       <motion.div

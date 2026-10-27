@@ -1,6 +1,6 @@
 # murguy. — Portfolio
-Personal portfolio website of **Dhimas Nurhanindya Putra**, a Frontend Engineer & UI/UX Designer based in Yogyakarta, Indonesia.
-Built with a cinematic intro sequence, smooth page transitions, and a minimalist light aesthetic.
+Personal portfolio website of **Dhimas Nurhanindya Putra**, a Full-stack Software Developer and Gadjah Mada University graduate based in Bantul, Yogyakarta.
+The site presents professional and volunteer experience, academic work, projects, skills, and contact details in a single-page layout.
 ---
 ## Tech Stack
 | Layer         | Technology                          |
@@ -59,8 +59,9 @@ portofolioku/
 │   │   ├── Projects.tsx     # Vertical project list
 │   │   └── Skills.tsx       # Skill category cards with hover reveals
 │   ├── data/
-│   │   ├── experience.ts    # Experience entries
-│   │   ├── projects.ts      # Project data (11 projects)
+│   │   ├── experience.ts    # Professional, academic, volunteer, and leadership entries
+│   │   ├── education.ts     # Education and achievement data
+│   │   ├── projects.ts      # Project data
 │   │   └── skills.ts        # Skill categories
 │   ├── hooks/
 │   │   └── useScrollReveal.ts # Scroll-triggered animation hook
@@ -83,23 +84,23 @@ portofolioku/
 ```
 ---
 ## Features
-- **Cinematic Intro** — Full-screen dark preloader with letter-by-letter "murguy" animation, film grain texture, and an "Enter" button. On click, curtain panels sweep in then split apart to reveal content.
-- **Page Transitions** — Framer Motion AnimatePresence with fade + slide between routes.
-- **Line-by-Line Hero** — Each line of the hero heading reveals sequentially with overflow clip animation.
-- **Staggered Content Reveal** — Hero, navbar, and scroll indicator only animate after the intro is dismissed.
-- **Multi-Page Routing** — 6 dedicated routes (Home, About, Projects, Experience, Skills, Contact).
+- **Single-page portfolio** — The navigation links scroll to sections on one page.
+- **Automatic Intro** — An animated opening transitions into the portfolio.
+- **Scroll Reveals** — Sections and project cards animate as they enter view.
+- **Expandable Projects** — Project details, available screenshots, and links appear when a project is opened.
 - **Responsive Design** — Mobile-first with hamburger nav, adaptive typography via `clamp()`.
-- **Minimalist Light Theme** — Warm off-white background (`#FAFAF8`), near-black text, teal accent.
+- **Notebook-inspired Theme** — Warm paper tones, near-black text, and yellow accents.
 ---
 ## Color Palette
 | Token             | Value     | Usage                     |
 |-------------------|-----------|---------------------------|
-| `--color-surface` | `#FAFAF8` | Page background           |
-| `--color-surface-card` | `#F0F0EE` | Card backgrounds     |
-| `--color-ink`     | `#1a1a1a` | Primary text              |
-| `--color-accent`  | `#2DD4BF` | Accent (teal)             |
+| `--color-surface` | `#FAF9F6` | Page background           |
+| `--color-surface-card` | `#FFFEFA` | Card backgrounds     |
+| `--color-ink`     | `#191A18` | Primary text              |
+| `--color-accent`  | `#F7CB45` | Accent (yellow)           |
 ---
 ## Contact
-- **Email:** dhimasnurhanindya@gmail.com
-- **LinkedIn:** [linkedin.com/in/dhimasnp](https://www.linkedin.com/in/dhimasnp/)
-- **Instagram:** [@murguy.jpg](https://instagram.com/murguy.jpg)
+- **Email:** [dhimasnurhanindya@gmail.com](mailto:dhimasnurhanindya@gmail.com)
+- **Phone:** +62 823-2941-4146
+- **LinkedIn:** [linkedin.com/in/dhimasnp](https://linkedin.com/in/dhimasnp/)
+- **GitHub:** [github.com/keepurspiritbruv](https://github.com/keepurspiritbruv)

@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <p className="mb-3 font-serif text-lg text-[#191a18]">murguy.</p>
             <p className="max-w-xs text-xs leading-relaxed text-[#65645d]">
-              Frontend Engineer &amp; UI/UX Designer in Yogyakarta, Indonesia.
+              Full-stack Software Developer in Bantul, Yogyakarta.
             </p>
           </div>
 
@@ -44,15 +44,10 @@ const Footer = () => {
               >
                 <FaLinkedin size={16} />
               </a>
-              <a
-                href="https://www.instagram.com/dhms._"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#807b6e] transition-colors hover:text-[#a35b31]"
-                aria-label="Instagram"
-              >
-                <FaInstagram size={16} />
-              </a>
+            </div>
+            <div className="mt-4 flex flex-col items-start gap-2">
+              <a href="mailto:dhimasnurhanindya@gmail.com" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">dhimasnurhanindya@gmail.com</a>
+              <a href="tel:+6282329414146" className="text-xs text-[#65645d] transition-colors hover:text-[#191a18]">+62 823-2941-4146</a>
             </div>
           </div>
         </div>

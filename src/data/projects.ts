@@ -14,6 +14,32 @@ import kknImg from '../assets/kkn-video.png'
 
 export const projects: Project[] = [
   {
+    id: 'miniweather',
+    title: 'Miniweather AI-Powered IoT Weather Monitoring & Early Warning System',
+    shortDesc: 'Four-service weather platform with LSTM rainfall and wind anomaly detection',
+    longDesc:
+      'Contributed to a four-service platform combining sensor monitoring, interactive dashboards, backend APIs, and LSTM-based rainfall and wind anomaly detection. The work included integrating machine-learning outputs into the weather dashboard.',
+    techStack: ['IoT Monitoring', 'Backend APIs', 'LSTM Autoencoder'],
+    category: 'fullstack',
+    images: [],
+    githubUrl: 'https://github.com/Miniweather-Station-Dashboard',
+    liveUrl: 'https://weather.context.my.id/dashboard',
+    year: 2026,
+    featured: true,
+  },
+  {
+    id: 'coastal-early-warning',
+    title: 'Coastal Disaster Early Warning System',
+    shortDesc: 'Undergraduate thesis prototype spanning five coastal locations',
+    longDesc:
+      'Developed a rule-based early-warning prototype for five beaches, combining local fishermen knowledge with BMKG weather forecasts. This work was completed as an undergraduate thesis.',
+    techStack: ['Rule-based Early Warning', 'BMKG Forecasts', 'Local Knowledge'],
+    category: 'fullstack',
+    images: [],
+    year: 2026,
+    featured: true,
+  },
+  {
     id: 'kkn-video',
     title: 'KKN Project Video',
     shortDesc: 'Community service program video — Kuliah Kerja Nyata',
@@ -83,15 +109,15 @@ export const projects: Project[] = [
   },
   {
     id: 'pt-pupuk',
-    title: 'PT Pupuk Sriwidjaja — Portal Announcement',
-    shortDesc: 'Corporate portal for news and events announcement',
+    title: 'Kabar Pusri — News Interface',
+    shortDesc: 'Responsive company news interface built during a frontend internship',
     longDesc:
-      'A portal website to announce the latest news and events from PT Pupuk Sriwidjaja Palembang. Built with a clean corporate design, CMS integration for easy content management, and responsive layout across all devices. Due to company regulations, the live link cannot be shared publicly.',
-    techStack: ['React', 'Tailwind CSS', 'REST API', 'CMS'],
-    category: 'fullstack',
+      'Delivered a responsive Kabar Pusri news interface for desktop and mobile using React and Tailwind CSS. Standardized responsive page layouts and interactive component presentation for consistent cross-device use.',
+    techStack: ['React', 'Tailwind CSS'],
+    category: 'web',
     thumbnail: ptPupuk,
     images: [ptPupuk],
-    year: 2024,
+    year: 2025,
     featured: true,
   },
   {

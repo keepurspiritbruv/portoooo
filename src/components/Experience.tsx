@@ -1,12 +1,21 @@
 import { motion } from 'framer-motion'
-import { GraduationCap, Briefcase, Users } from 'lucide-react'
+import { GraduationCap, Briefcase, Users, HeartHandshake, Award } from 'lucide-react'
 import { experiences } from '../data/experience'
+import { achievements, education } from '../data/education'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const iconMap = {
-  education: GraduationCap,
-  work: Briefcase,
-  organization: Users,
+  academic: GraduationCap,
+  professional: Briefcase,
+  volunteer: HeartHandshake,
+  leadership: Users,
+} as const
+
+const typeLabels = {
+  academic: 'Academic role',
+  professional: 'Professional experience',
+  volunteer: 'Volunteer',
+  leadership: 'Student leadership',
 } as const
 
 const Experience = () => {
@@ -61,12 +70,43 @@ const Experience = () => {
                     <h3 className="text-base font-semibold text-[#191a18]">{exp.role}</h3>
                     <span className="w-fit shrink-0 rounded bg-[#f3f0e8] px-2 py-1 font-mono text-[10px] text-[#65645d]">{exp.period}</span>
                   </div>
-                  <p className="mb-3 text-xs font-medium text-[#a35b31]">{exp.company}</p>
+                  <p className="mb-1 text-xs font-medium text-[#a35b31]">{exp.company}</p>
+                  <p className="mb-3 text-[10px] uppercase tracking-wide text-[#807b6e]">{typeLabels[exp.type]} · {exp.location}</p>
                   <p className="text-sm leading-[1.75] text-[#65645d]">{exp.description}</p>
                 </div>
               </motion.div>
             )
           })}
+        </div>
+
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
+          <article className="notebook-card p-6 sm:p-7">
+            <div className="mb-4 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e4d27b] bg-[#fff5c8] text-[#5e5432]"><GraduationCap size={16} /></div>
+              <p className="note-label">Education</p>
+            </div>
+            <h3 className="text-lg font-semibold text-[#191a18]">{education.degree}</h3>
+            <p className="mt-1 text-sm text-[#a35b31]">{education.institution} · {education.location}</p>
+            <p className="mt-2 text-xs text-[#65645d]">{education.period} · GPA {education.gpa}</p>
+            <p className="mt-4 text-xs font-medium text-[#191a18]">Academic work</p>
+            <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-[#65645d]">
+              {education.academicWork.map((work) => <li key={work}>{work}</li>)}
+            </ul>
+          </article>
+
+          <article className="notebook-card p-6 sm:p-7">
+            <div className="mb-4 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e4d27b] bg-[#fff5c8] text-[#5e5432]"><Award size={16} /></div>
+              <p className="note-label">Achievement</p>
+            </div>
+            {achievements.map((achievement) => (
+              <div key={achievement.name}>
+                <h3 className="text-lg font-semibold text-[#191a18]">{achievement.name}</h3>
+                <p className="mt-1 text-sm text-[#a35b31]">{achievement.year} · Total score {achievement.totalScore}</p>
+                <p className="mt-3 text-sm leading-[1.75] text-[#65645d]">{achievement.administeredBy}</p>
+              </div>
+            ))}
+          </article>
         </div>
       </div>
     </section>

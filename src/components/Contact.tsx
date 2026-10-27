@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, MapPin, ArrowUpRight } from 'lucide-react'
+import { Mail, MapPin, ArrowUpRight, Phone } from 'lucide-react'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const Contact = () => {
@@ -27,7 +27,7 @@ const Contact = () => {
             Have a project in mind or just want to chat?
           </h2>
           <p className="mb-8 max-w-xl text-sm leading-relaxed text-[#65645d]">
-            I’m an Information Technology student at Universitas Gadjah Mada, interested in frontend engineering and UI/UX design. Reach me by email.
+            I’m a full-stack software developer and Gadjah Mada University graduate based in Bantul, Yogyakarta. Reach me by email or phone.
           </p>
 
           <div className="mb-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
@@ -41,11 +41,16 @@ const Contact = () => {
               <span className="break-all text-sm">dhimasnurhanindya@gmail.com</span>
             </a>
 
+            <a href="tel:+6282329414146" className="group flex items-center gap-3 text-[#55544e] transition-colors hover:text-[#a35b31]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ded9cd] bg-white transition-colors group-hover:border-[#a35b31]"><Phone size={14} /></div>
+              <span className="text-sm">+62 823-2941-4146</span>
+            </a>
+
             <div className="flex items-center gap-3 text-[#55544e]">
               <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ded9cd] bg-white">
                 <MapPin size={14} />
               </div>
-              <span className="text-sm">Yogyakarta, Indonesia</span>
+              <span className="text-sm">Bantul, Yogyakarta</span>
             </div>
           </div>
 

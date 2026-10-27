@@ -1,26 +1,9 @@
 import { motion } from 'framer-motion'
-import {
-  FaYoutube,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedin,
-  FaDiscord,
-  FaTiktok,
-  FaGithub,
-} from 'react-icons/fa'
+import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const socialLinks = [
-  { name: 'YouTube', icon: FaYoutube, url: 'https://youtube.com/@dhimasnurhanindya' },
-  {
-    name: 'Instagram',
-    icon: FaInstagram,
-    url: 'https://www.instagram.com/dhms._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
-  },
-  { name: 'Twitter', icon: FaTwitter, url: 'https://x.com/dhimurguy' },
-  { name: 'LinkedIn', icon: FaLinkedin, url: 'https://www.linkedin.com/in/dhimasnp/' },
-  { name: 'Discord', icon: FaDiscord, url: 'https://discord.com' },
-  { name: 'TikTok', icon: FaTiktok, url: 'https://tiktok.com/@dhimsnep' },
+  { name: 'LinkedIn', icon: FaLinkedin, url: 'https://linkedin.com/in/dhimasnp/' },
   { name: 'GitHub', icon: FaGithub, url: 'https://github.com/keepurspiritbruv' },
 ]
 
@@ -46,7 +29,7 @@ const About = () => {
           <p className="note-label mb-5">A bit about me</p>
 
           <h2 className="mb-10 max-w-3xl text-[clamp(2.3rem,6vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[#191a18]">
-            Curious about how thoughtful software can make everyday things easier.
+            I build software for real-world monitoring and early warning.
           </h2>
         </motion.div>
 
@@ -59,15 +42,10 @@ const About = () => {
             className="notebook-card space-y-5 p-6 sm:p-8"
           >
             <p className="text-sm leading-[1.85] text-[#55544e] md:text-base">
-              As an Information Technology student at Gadjah Mada University, I possess strong
-              skills in programming, UI/UX development, software development, and data analysis.
-              With a passion for innovation and a commitment to excellence, I am eager to apply my
-              expertise to drive progress and contribute to the success of any team or organization.
+              I’m a full-stack software developer and Gadjah Mada University graduate based in Bantul, Yogyakarta. My work spans React interfaces, Node.js services, REST APIs, and IoT-connected monitoring applications.
             </p>
             <p className="text-sm leading-[1.85] text-[#55544e] md:text-base">
-              More likely a UI/UX Designer or Frontend Engineer. I am also interested in expanding
-              my skills and finding new experiences that challenge my creative and technical
-              boundaries.
+              I contributed to a four-service weather platform with LSTM anomaly detection and developed a coastal early-warning prototype covering five locations. I work with TypeScript, Python, Docker, and relational databases to connect data, services, and usable interfaces.
             </p>
           </motion.div>
 

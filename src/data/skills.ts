@@ -3,22 +3,22 @@ import type { SkillCategory } from '../types'
 export const skillCategories: SkillCategory[] = [
   {
     category: 'Frontend Development',
-    skills: ['JavaScript', 'TypeScript', 'React', 'HTML', 'CSS', 'Tailwind CSS', 'Next.js'],
+    skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS'],
   },
   {
-    category: 'UI/UX Design',
-    skills: ['Figma', 'Wireframing', 'Prototyping', 'User Research', 'Design Systems'],
+    category: 'Backend & APIs',
+    skills: ['Node.js', 'Express.js', 'FastAPI', 'REST API'],
   },
   {
-    category: 'Visual & Media',
-    skills: ['Adobe Lightroom', 'Adobe Photoshop', 'Adobe Premiere Pro', 'Canva', 'Photography', 'Videography'],
+    category: 'Data & Databases',
+    skills: ['Python', 'SQL', 'SQLite', 'PostgreSQL', 'Drizzle ORM'],
   },
   {
-    category: 'Development Tools',
-    skills: ['VS Code', 'Git', 'GitHub', 'Vite', 'REST API'],
+    category: 'Tools & Software',
+    skills: ['Git', 'Docker', 'Figma', 'Visual Studio Code'],
   },
   {
-    category: 'Soft Skills',
-    skills: ['Problem Solving', 'Team Collaboration', 'Communication', 'Time Management', 'Adaptability'],
+    category: 'Applied Methods',
+    skills: ['LSTM Autoencoder', 'IoT Monitoring'],
   },
 ]

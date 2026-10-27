@@ -5,7 +5,7 @@ export interface Project {
   longDesc: string
   techStack: string[]
   category: 'web' | 'mobile' | 'fullstack' | 'other'
-  thumbnail: string
+  thumbnail?: string
   images: string[]
   githubUrl?: string
   liveUrl?: string
@@ -17,9 +17,26 @@ export interface Experience {
   id: string
   role: string
   company: string
+  location: string
   period: string
   description: string
-  type: 'work' | 'education' | 'organization'
+  type: 'academic' | 'professional' | 'volunteer' | 'leadership'
+}
+
+export interface Education {
+  institution: string
+  location: string
+  degree: string
+  period: string
+  gpa: string
+  academicWork: string[]
+}
+
+export interface Achievement {
+  name: string
+  year: number
+  administeredBy: string
+  totalScore: number
 }
 
 export interface SkillCategory {

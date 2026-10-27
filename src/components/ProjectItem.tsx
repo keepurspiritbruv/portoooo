@@ -65,16 +65,18 @@ const ProjectItem = ({ project, index, isExpanded, onToggle }: ProjectItemProps)
             className="overflow-hidden"
           >
             <div className="space-y-5 border-t border-[#e9e5da] px-4 pb-5 pt-4 sm:px-5">
-              <div className="aspect-video overflow-hidden rounded-lg bg-[#f2f0e9]">
-                <img
-                  src={project.thumbnail}
-                  alt={project.title}
-                  width={960}
-                  height={540}
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              {project.thumbnail && (
+                <div className="aspect-video overflow-hidden rounded-lg bg-[#f2f0e9]">
+                  <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    width={960}
+                    height={540}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
 
               <p className="max-w-3xl text-sm leading-[1.8] text-[#55544e]">{project.longDesc}</p>
 
