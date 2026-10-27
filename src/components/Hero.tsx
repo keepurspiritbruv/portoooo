@@ -61,6 +61,9 @@ const Hero = ({ introComplete }: HeroProps) => (
         <a href="#contact" className="inline-flex items-center gap-2 rounded-md border border-[#d8d3c7] bg-[#fffefa] px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-[#35362f] transition hover:border-[#b9a23c] hover:bg-[#fff7d7]">
           Say hello <ArrowUpRight size={15} />
         </a>
+        <a href="https://drive.google.com/file/d/1kEbVDZZm2MgPlyxIxktmJQ1Jxf7YBYE2/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-[#d8d3c7] bg-[#fffefa] px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-[#35362f] transition hover:border-[#b9a23c] hover:bg-[#fff7d7]">
+          Google Drive <ArrowUpRight size={15} />
+        </a>
       </motion.div>
 
       <a href="#about" className="mt-16 inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.16em] text-[#807b6e] hover:text-[#191a18] sm:mt-20">
